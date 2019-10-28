@@ -16,7 +16,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private authenticationService:AuthService,
+    private authenticationService: AuthService,
     private router: Router
   ) {
     this.initializeApp();
@@ -28,7 +28,7 @@ export class AppComponent {
       this.splashScreen.hide();
       this.authenticationService.isloggedin.subscribe(state => {
         if (state) {
-          this.router.navigate(['/home']);
+          this.router.navigate(['']);
         } else {
           this.router.navigate(['/login']);
         }

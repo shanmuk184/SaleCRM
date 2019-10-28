@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
-  constructor(private authService: AuthService, private router:Router) {}
-  
-}
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {
+  }
+  }

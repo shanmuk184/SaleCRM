@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start" ></ion-back-button>
+    <!-- <ion-menu-button slot="end" ></ion-menu-button> -->
+    <ion-title>sale</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Enter Product name" inputmode="text" type="text" (ionChange)="onProductSearchChange($event)" [debounce]="250"></ion-searchbar>
+
+</ion-content>

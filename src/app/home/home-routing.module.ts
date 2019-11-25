@@ -22,9 +22,16 @@ const routes: Routes = [
         ]
       },
       {
-        path: '',
-        redirectTo: '/tabs/home',
-        pathMatch: 'full'
+        path: 'operations',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../components/operations/operations.module').then(
+                m => m.OperationsPageModule
+              )
+          }
+        ]
       }
     ]
   },

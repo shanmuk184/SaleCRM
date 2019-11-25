@@ -1,4 +1,6 @@
-import { HttpClientModule } from '@angular/common/http';
+import { OperationsPageModule } from './components/operations/operations.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { AuthModule } from './modules/auth/auth.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginPageModule } from './components/auth/login/login.module';
 import { RegisterPageModule } from './components/register/register.module';
-
+import {HttpConfigInterceptor} from './interceptors/http.interceptor';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,12 +27,18 @@ import { RegisterPageModule } from './components/register/register.module';
     ReactiveFormsModule,
     HttpClientModule,
     LoginPageModule,
-    RegisterPageModule
+    RegisterPageModule,
+    OperationsPageModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -41,6 +41,13 @@ export class HomePage implements OnInit {
 
     this.menuItems = [
       {
+        id: 'createGroup',
+        name: 'Create Group',
+        onclick: (item) => this.menuClickNavigate(item),
+        icon: 'people',
+        redirectUrl: '/create-group'
+      },
+      {
         id: 'attendance',
         name: 'Attendance',
         icon: 'contacts',
@@ -51,35 +58,35 @@ export class HomePage implements OnInit {
         id: 'saleEntry',
         name: 'Sale Entry',
         icon: 'cart',
-        onclick: (item)=>this.menuClickNavigate(item),
+        onclick: item => this.menuClickNavigate(item),
         redirectUrl: '/sale'
       },
       {
         id: 'saleReports',
         name: 'Sale Reports',
         icon: 'paper',
-        onclick: (item) => this.menuClickNavigate(item),
+        onclick: item => this.menuClickNavigate(item),
         redirectUrl: ''
       },
       {
         id: 'inventoryCheck',
         name: 'Inventory Check',
         icon: 'trending-up',
-        onclick: (item) => this.menuClickNavigate(item),
+        onclick: item => this.menuClickNavigate(item),
         redirectUrl: ''
       },
       {
         id: 'calendar',
         name: 'My Calendar',
         icon: 'calendar',
-        onclick: (item) => this.menuClickNavigate(item),
+        onclick: item => this.menuClickNavigate(item),
         redirectUrl: ''
       },
       {
         id: 'approvals',
         name: 'Approvals',
         icon: 'clipboard',
-        onclick: (item) => this.menuClickNavigate(item),
+        onclick: item => this.menuClickNavigate(item),
         redirectUrl: ''
       }
     ];
@@ -87,10 +94,9 @@ export class HomePage implements OnInit {
 
   ngOnInit() {}
   // private me: any = this;
-  menuClickNavigate(item) {
-    switch (item.id) {
-      case 'saleEntry':
-        this.router.navigateByUrl(item.redirectUrl);
+  menuClickNavigate( item ) {
+    if (item.id) {
+      this.router.navigateByUrl(item.redirectUrl);
     }
   }
 }

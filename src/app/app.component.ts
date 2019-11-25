@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  commonDrawerObjects:any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -19,7 +20,35 @@ export class AppComponent {
     private authenticationService: AuthService,
     private router: Router
   ) {
+    
     this.initializeApp();
+    this.commonDrawerObjects = [
+      {
+        id: 'profile',
+        name: 'My Profile',
+        icon: 'person'
+      },
+      {
+        id: 'userGuide',
+        name: 'User Guide',
+        icon: 'book'
+      },
+      {
+        id: 'settings',
+        name: 'Settings',
+        icon: 'settings'
+      },
+      {
+        id: 'aboutUs',
+        name: 'About Us',
+        icon: 'information-circle-outline'
+      },
+      {
+        id: 'logout',
+        name: 'Logout',
+        icon: 'power'
+      }
+    ];
   }
 
   initializeApp() {

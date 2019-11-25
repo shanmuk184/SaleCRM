@@ -1,3 +1,25 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-content>
+        <ion-split-pane when="sm">
+            <ion-menu menuId="menu-content" contentId="menu-content">
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Menu</ion-title>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content id="menu-content">
+                  <ion-list>
+                    <ion-item class="rowContainer" *ngFor="let item of commonDrawerObjects">
+                      <ion-icon name="{{ item.icon }}"></ion-icon>
+                      <ion-text>
+                        {{ item.name }}
+                      </ion-text>
+                    </ion-item>
+                  </ion-list>
+                </ion-content>
+              </ion-menu>
+              <ion-router-outlet main></ion-router-outlet>      
+        </ion-split-pane>
+        <!-- <ion-router-outlet id="menu-content"></ion-router-outlet> -->
+        </ion-content>
 </ion-app>
